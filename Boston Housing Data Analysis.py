@@ -58,10 +58,11 @@ sns.distplot(boston_data['Target'], bins=40)
 
 # Heat map -->
 plt.figure(figsize=(20,5))
-sns.heatmap(boston_data.corr().abs(), annot=True)
+sns.heatmap(boston_data.corr(), vmin=-1.0, vmax=1.0, center=0.0, annot=True)
 
 # Correlation Curves -->
-features = ['NOX','PTRATIO','RM','TAX','LSTAT','INDUS']
+#features = ['NOX','PTRATIO','RM','TAX','LSTAT','INDUS']     # First part
+features = ['CRIM', 'ZN', 'AGE', 'DIS', 'RAD','B']           # Second part
 min_max_scaler = preprocessing.MinMaxScaler()
 x_data = boston_data.loc[:,features]
 y_label = boston_data['Target']
